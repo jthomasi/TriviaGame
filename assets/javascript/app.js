@@ -1,10 +1,11 @@
 window.onload = function () {
 
 	var interval;
-	var realAnswers = ["sleep","none"];
+	var realAnswers = ["sleep","none","dachshund"];
 
     $("#startButton").on('click',function(){
     	$("#startButton").remove();
+    	$('span').html("01:00");
     	displayQuestions();
         interval = setInterval(runTimer,1000);
     });
@@ -33,6 +34,7 @@ window.onload = function () {
             alert("Time's up!");
             answerOne = document.querySelector('input[name="q1"]:checked').value;
 			answerTwo = document.querySelector('input[name="q2"]:checked').value;
+			answerThree = document.querySelector('input[name="q3"]:checked').value;
 
 			$('#questionsBox').remove();
 			$('span').remove();
@@ -61,7 +63,7 @@ window.onload = function () {
 			optionsTwo.attr("value","sleep");
 			$("#questions").append(optionsTwo);
 
-			var optionsThree = $('<input> Tearing down the establishment </input><br>');
+			var optionsThree = $('<input> Tearing down the establishment </input>');
 			optionsThree.attr("type","radio");
 			optionsThree.attr("name","q1");
 			optionsThree.attr("value","tearing down the establishment");
@@ -84,14 +86,39 @@ window.onload = function () {
 			optionsTwoTwo.attr("value","none");
 			$("#questions").append(optionsTwoTwo);
 
+		var questionThree = $('<p>');
+		questionThree.attr("id","questionThree");
+		questionThree.html("Question 3: Which bred of dog is the cutest?");
+		$("#questions").append(questionThree);
+
+			var optionsOneOneOne = $('<input> Labs </input>');
+			optionsOneOneOne.attr("type","radio");
+			optionsOneOneOne.attr("name","q3");
+			optionsOneOneOne.attr("value","labs");
+			$("#questions").append(optionsOneOneOne);
+
+			var optionsTwoTwoTwo = $('<input> Poodles </input>');
+			optionsTwoTwoTwo.attr("type","radio");
+			optionsTwoTwoTwo.attr("name","q3");
+			optionsTwoTwoTwo.attr("value","poodles");
+			$("#questions").append(optionsTwoTwoTwo);
+
+			var optionsThreeThreeThree = $('<input> Dachshunds </input>');
+			optionsThreeThreeThree.attr("type","radio");
+			optionsThreeThreeThree.attr("name","q3");
+			optionsThreeThreeThree.attr("value","dachshund");
+			$("#questions").append(optionsThreeThreeThree);
+
 		var submit = $('<button>Submit</button>');
 		submit.attr("id","submit");
+		submit.attr("class","btn btn-primary");
 		$('#submitBtn').append(submit);
 
 		$("#submit").on('click',function(){
 
 			answerOne = document.querySelector('input[name="q1"]:checked').value;
 			answerTwo = document.querySelector('input[name="q2"]:checked').value;
+			answerThree = document.querySelector('input[name="q3"]:checked').value;
 
 			$('#questionsBox').remove();
 			$('span').remove();
@@ -120,14 +147,17 @@ window.onload = function () {
 		 else if (answerTwo != realAnswers[1]) {
 		 	incorrect += 1;
 		 }
+		 if (answerThree == realAnswers[2]) {
+		 	correct += 1;
+		 }	
+		 else if (answerThree != realAnswers[2]) {
+		 	incorrect += 1;
+		 }
 
 		 $('#answers').append("All Done!");
 
 		 displayCorrect.append("Correct: "+correct+"<br>");
 		 displayCorrect.append("Incorrect: "+incorrect);
 		 $('#answers').append(displayCorrect);
-
 	}
-
-
 };

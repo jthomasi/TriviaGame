@@ -12,30 +12,28 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
 </head>
 <body>
 
 	<header>
-		<h1 class="jumbotron text-center"> Totally Trivial Game! </h1>
+		<h1 class="jumbotron text-center" style="font-size: 60px"> Totally Trivial Game! </h1>
 	</header>
 
 	<button id="startButton" class="btn btn-primary text-center">Start</button><br>
 
 	<div id="wrapper">
 
-		
-		<span>01:00</span>
+		<span></span>
 
-	</div>
+		<div id="questionsBox">
+			<div id="questions"></div>
+			<div id="submitBtn"></div>
+		</div>
 
-	<div id="questionsBox">
-		<div id="questions"></div>
-		<div id="submitBtn"></div>
-	</div>
+		<div id="answersBox">
+			<div id="answers"></div>
+		</div>
 
-	<div id="answersBox">
-		<div id="answers"></div>
 	</div>
 	
 </body>
